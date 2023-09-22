@@ -1,4 +1,35 @@
 .App {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.DrawingContainer {
+    border: 5px solid black;
+    width: 500px;
+    height: 500px;
+}
+.DrawingPlace {
+  width: 100%;
+  height: 100%;
+  cursor:crosshair ;
+}
+
+.ToolBar {
+  background-color: aquamarine;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.InputBox {
+  margin: 30px;
+}
+
+
