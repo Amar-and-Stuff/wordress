@@ -1,25 +1,20 @@
 import { useState } from 'react';
 import './App.css';
+import Canvas from './Components/Canvas';
 
 function App() {
   let [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  let [cursorText, setCursorText] = useState("Hello click!!");
-  let [htmlString, setHTMLString] = useState("");
+  let [currentText, setCurrentText] = useState("New Text");
 
   return (
     <div className="App">
       <div className='ToolBar'>
         <label>select bg color:</label>
         <input type='color' defaultValue={backgroundColor} onInput={(e)=>{setBackgroundColor(e.target.value)}}></input>
+        <input type='text' defaultValue={currentText} onInput={(e)=>{setCurrentText(e.target.value)}}></input>
       </div>
-      
-      <div className="DrawingContainer">
-        <div className='DrawingPlace' style={{backgroundColor:backgroundColor}}>
-        <div dangerouslySetInnerHTML={{__html:htmlString+"<div style=\"color:red;\">"+cursorText+"</div>"}}></div>
-        </div>
-      </div>
-      <input className='InputBox' placeholder='enter text to display on click' onInput={(e)=>{setCursorText(e.target.value);}} defaultValue={cursorText}></input>
-      <button onClick={()=>{setHTMLString(htmlString+"<div>"+cursorText+"</div>")}}>Add</button>
+      <Canvas height={500} width={500} bgcolor={backgroundColor} currentText={currentText}/>
+
     </div>
   );
 }
